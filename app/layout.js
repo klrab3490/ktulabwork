@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
             <body className={inter.className}>
                 <section className="min-h-screen">
                     <Navbar />
-                    {children}
+                    <div className='px-7'>{children}</div>
                 </section>
             </body>
         </html>
