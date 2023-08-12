@@ -1,128 +1,82 @@
 #include<stdio.h>
 
-int cols, rows, i, j, k, l, count=0, claim[10], alloc[10][10], max_claim[10][10], avail[0][10], sum_allo[10], done[10], need_tab[10][10];
 
-int main() {
-	printf("Banker's Algorithm\nEnter the no. of processes : ");
-	scanf("%d", &rows);
+void main(){
+    int rows,col;
+	printf("Banker's Algorithm\n Enter No. of Process : ");
+	scanf("%d",&rows);
+	printf("Enter No. of Resource : ");
+	scanf("%d",&col);
 	
-	printf("Enter Resources : ");
-	scanf("%d", &cols);
-	
-	printf("Enter Claim Vector : ");
-	for (i = 0; i < cols; i++)
-		scanf("%d", &claim[i]);
-	
-	printf("Enter Allocated Table : \n");
-	
-	// Resource table
-	for (i = 0; i < rows; i++) {
-		for (j = 0; j < cols; j++) {
-			scanf("%d", &alloc[i][j]);
-			sum_allo[j] = 0;
-		}
+	/*Allocation Matrix*/
+	printf("Enter Allocation Matrix : \n");
+	int alloc[rows][col];
+	for(int i=0;i<rows;i++){
+	    for(int j=0;j<col;j++){
+	        scanf("%d",&alloc[i][j]);
+	    }
 	}
 	
-	printf("Enter Claim Table : \n");
-	
-	// Claim table
-	for (i = 0; i < rows; i++) {
-		for (j = 0; j < cols; j++) {
-			scanf("%d", &max_claim[i][j]);
-		}
+	/*Max Matrix*/
+	printf("Enter Max Matrix : \n");
+	int max[rows][col];
+	for(int i=0;i<rows;i++){
+	    for(int j=0;j<col;j++){
+	        scanf("%d",&max[i][j]);
+	    }
 	}
 	
-	for (i = 0; i < rows; i++)
-		done[i] = -1;
-	
-	for (i = 0; i < rows; i++) {
-		for (j = 0; j < cols; j++) {
-			need_tab[i][j] = max_claim[i][j] - alloc[i][j];
-		}
+	/*Need Matrix*/
+	printf("Need Matrix : \n");
+	int need[rows][col];
+	for(int i=0;i<rows;i++){
+	    for(int j=0;j<col;j++){
+	        need[i][j]=max[i][j]-alloc[i][j];
+	        printf("%d ",need[i][j]);
+	    }
+	    printf("\n");
 	}
 	
-	printf("The Need table\n");
-	for (i = 0; i < rows; i++) {
-		for (j = 0; j < cols; j++) {
-			printf("%d\t", need_tab[i][j]);
-		}
-		printf("\n");
+	/*Available Resource*/
+	printf("Enter Available Resource : ");
+	int available[col];
+	for(int i=0;i<col;i++){
+	    scanf("%d",&available[i]);
 	}
-	printf("\n");
-	
-	// Print claim
-	printf("The claim vector is : ");
-	for (i = 0; i < cols; i++)
-		printf("%d  ", claim[i]);
-	printf("\n\n");
-	
-	// Print resource table
-	printf("Allocation Table\n");
-	for (i = 0; i < rows; i++) {
-		for (j = 0; j < cols; j++) {
-			printf("%d\t", alloc[i][j]);
-		}
-		printf("\n");
-	}
-	
-	// Print claim table
-	printf("\nMax Table\n");
-	for (i = 0; i < rows; i++) {
-		for (j = 0; j < cols; j++) {
-			printf("%d\t", max_claim[i][j]);
-		}
-		printf("\n");
-	}
-	
-	// Sum of allocated resources
-	printf("\nAllocated Resources : ");
-	for (j = 0; j < cols; j++) {
-		sum_allo[j] = 0;
-		for (i = 0; i < rows; i++) {
-			sum_allo[j] += alloc[i][j];
-		}
-		printf("%d\t", sum_allo[j]);
-	}
-	printf("\n");
-	
-	// Print available resources
-	printf("\nAvailable Resources : ");
-	for (i = 0; i < cols; i++) {
-		avail[0][i] = claim[i] - sum_allo[i];
-		printf("%d\t", avail[0][i]);
+	printf("Banker's Algorithm");
+	int executed=0,count=0;
+	int done[rows],safe[rows];
+	while(executed < rows){
+	    for(int i=0;i<rows;i++){
+			count=0;
+	        if(done[i]!=1){
+	            for(int j=0;j<col;j++){
+	                if (need[i][j]<=available[j]){
+	                    count++;
+	                }else{
+	                    break;
+	                }
+	            }
+	            if (count==col){
+	                done[i]=1;
+	                safe[executed]=i;
+	                executed+=1;
+	                printf("\nP[%d] is executed. Available : ",i);
+	                for(int k=0,l=0;k<col,l<col;k++,l++){
+	                    printf("%d ",available[k]+=alloc[i][l]);
+	                }
+	            }
+	        }
+	    }
 	}
 	
-	int executed = 0, array[10];
-	while (executed < rows) {
-		for (i = 0; i < rows; i++) {
-			count = 0;
-			if (done[i] != 1) {
-				for (j = 0; j < cols; j++) {
-					if (need_tab[i][j] <= avail[0][j])
-						count++; // To ensure all the elements of the row are checked
-					else
-						break;
-				}
-				if (count == cols) {
-					done[i] = 1;
-					array[executed] = i;
-					executed += 1;
-					printf("\t Process P%d is executing (safe state)\nAvailable vector : ", i);
-					for (k = 0, l = 0; k < cols, l < cols; k++, l++)
-						printf("%d\t", avail[0][k] += alloc[i][l]); // Available vector
-				}
-			}
-		}
-	}
-	
-	printf("\nSafe Sequence : ");
-	for (i = 0; i < rows; i++) {
-		printf("P%d", array[i]);
-		if ((i + 1) != rows) {
+	/*Safe Sequence*/
+	printf("\n Safe Sequence Is : ");
+	for(int i=0;i<rows;i++){
+	    printf("P[%d]",safe[i]);
+	    if ((i + 1) != rows) {
 			printf("->");
 		}
 	}
-	
 	printf("\n");
-	return 0;
 }
