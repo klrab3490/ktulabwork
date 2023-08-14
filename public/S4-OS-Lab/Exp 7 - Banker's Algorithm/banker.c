@@ -48,7 +48,7 @@ void main(){
 	int done[rows],safe[rows];
 	while(executed < rows){
 	    for(int i=0;i<rows;i++){
-			count=0;
+	        count=0;
 	        if(done[i]!=1){
 	            for(int j=0;j<col;j++){
 	                if (need[i][j]<=available[j]){
