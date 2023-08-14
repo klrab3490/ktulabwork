@@ -43,7 +43,8 @@ void main(){
 	for(int i=0;i<col;i++){
 	    scanf("%d",&available[i]);
 	}
-	printf("Banker's Algorithm");
+	
+	/*Banker's Algorithm*/
 	int executed=0,count=0;
 	int done[rows],safe[rows];
 	while(executed < rows){
