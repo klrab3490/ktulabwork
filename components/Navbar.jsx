@@ -35,7 +35,7 @@ const Navbar = () => {
                 </div>
                 <div className={
                     navbar 
-                        ? "sm:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full p-5 bg-white h-screen text-center ease-in duration-300"
+                        ? "sm:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full p-5 bg-gradient-to-b from-slate-300 to-white h-screen text-center ease-in duration-300"
                         : "sm:hidden absolute top-0 left-[-100%] right-0 bottom-0 flex justify-center items-center w-full h-screen text-center ease-in duration-300"
                 }>
                     <ul className="sm:flex text-black text-4xl">
