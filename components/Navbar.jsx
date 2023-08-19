@@ -35,17 +35,17 @@ const Navbar = () => {
                 </div>
                 <div className={
                     navbar 
-                        ? "sm:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full p-5 h-screen bg-white text-center ease-in duration-300"
-                        : "sm:hidden absolute top-0 left-[-100%] right-0 bottom-0 flex justify-center items-center w-full h-screen bg-white text-center ease-in duration-300"
+                        ? "sm:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full p-5 bg-white h-screen text-center ease-in duration-300"
+                        : "sm:hidden absolute top-0 left-[-100%] right-0 bottom-0 flex justify-center items-center w-full h-screen text-center ease-in duration-300"
                 }>
                     <ul className="sm:flex text-black text-4xl">
-                        <li onClick={handleNav} > <Link href={"/S2"}>Semester 2</Link> </li>
-                        <li onClick={handleNav} > <Link href={"/S3"}>Semester 3</Link> </li>
-                        <li onClick={handleNav} > <Link href={"/S4"}>Semester 4</Link> </li>
-                        <li onClick={handleNav} > <Link href={"/S5"}>Semester 5</Link> </li>
-                        <li onClick={handleNav} > <Link href={"/S6"}>Semester 6</Link> </li>
-                        <li onClick={handleNav} > <Link href={"/S7"}>Semester 7</Link> </li>
-                        <li onClick={handleNav} > <Link href={"/S8"}>Semester 8</Link> </li>
+                        <li onClick={handleNav}> <Link href={"/S2"}>Semester 2</Link> </li>
+                        <li onClick={handleNav}> <Link href={"/S3"}>Semester 3</Link> </li>
+                        <li onClick={handleNav}> <Link href={"/S4"}>Semester 4</Link> </li>
+                        <li onClick={handleNav}> <Link href={"/S5"}>Semester 5</Link> </li>
+                        <li onClick={handleNav}> <Link href={"/S6"}>Semester 6</Link> </li>
+                        <li onClick={handleNav}> <Link href={"/S7"}>Semester 7</Link> </li>
+                        <li onClick={handleNav}> <Link href={"/S8"}>Semester 8</Link> </li>
                     </ul>
                 </div>
             </div>

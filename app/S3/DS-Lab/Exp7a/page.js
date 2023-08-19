@@ -5,7 +5,11 @@ const page = () => {
     return (
         <div className='flex-center text-xl'>
             <div className='text-center underline'><Link href={"/S3/DS-Lab"}>Semester 3 - Data Structure Lab</Link></div>
-            <div className='text-center underline'>Exp7a - DFS</div>
+            <div className='flex items-center justify-between'>
+                <Link href={"/S3/DS-Lab/Exp6d"}>Previous</Link>
+                <div className='text-center underline'>Exp7a - DFS</div>
+                <Link href={"/S3/DS-Lab/Exp7b"}>Next</Link>
+            </div>
             
         </div>
     )

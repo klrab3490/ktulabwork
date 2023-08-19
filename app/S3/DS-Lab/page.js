@@ -4,7 +4,10 @@ import Link from "next/link";
 const page = () => {
     return (
         <div className='flex-center text-xl'>
-            <div className='text-center underline'>Semester 3 - Data Structure Lab</div>
+            <div className='text-center underline'>
+                <Link href={"/S3/DS-Lab"}>Semester 3</Link>
+            </div>
+            <div className='text-center underline'>Data Structure Lab</div>
             <ul>
                 <li><Link href={"/S3/DS-Lab/Exp1a"}> Experiment 1a. Stack </Link> </li>
                 <li><Link href={"/S3/DS-Lab/Exp1b"}> Experiment 1b. Queue </Link> </li>
