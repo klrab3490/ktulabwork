@@ -1,4 +1,5 @@
 import Navbar from '@components/Navbar'
+import Footer from '@components/footer'
 import '@styles/globals.css'
 import { Inter } from 'next/font/google'
 
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
                 <section className="min-h-screen">
                     <Navbar />
                     <div className='px-7'>{children}</div>
+                    <Footer />
                 </section>
             </body>
         </html>

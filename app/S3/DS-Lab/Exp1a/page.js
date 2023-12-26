@@ -10,7 +10,7 @@ const page = () => {
                 <div className='text-center underline'>Exp1a - Stack</div>
                 <Link href={"/S3/DS-Lab/Exp1b"}>Next</Link>
             </div>
-            <div> Text + inage  </div>
+            <div> Text + Image </div>
             <div>
                 code
             </div>

@@ -16,7 +16,6 @@ const Navbar = () => {
                 <h1 className="text-xl lg:text-3xl px-2"> <Link href={"/"}>KTU Labwork</Link> </h1>
                 <div>
                     <ul className="hidden sm:flex gap-4">
-                        <li></li>
                         <li> <Link href={"/S2"}>Semester 2</Link> </li>
                         <li> <Link href={"/S3"}>Semester 3</Link> </li>
                         <li> <Link href={"/S4"}>Semester 4</Link> </li>
