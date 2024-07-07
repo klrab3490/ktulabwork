@@ -1,4 +1,4 @@
-import ComingSoonTimer from '@components/ComingSoonTimer';
+import ComingSoonTimer from "@/components/ComingSoonTimer";
 import React from 'react'
 
 export default function page() {
