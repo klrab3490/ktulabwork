@@ -7,12 +7,11 @@
 int main() {
     char ip[] = "127.0.0.1";
     int port = 5566;
-
     int sock;
     struct sockaddr_in addr;
     socklen_t addr_size;
     char buffer[1024];
-    int n;
+    
     sock = socket(AF_INET, SOCK_STREAM, 0);
     if (sock < 0) {
         perror("[-]Socket error");
@@ -31,6 +30,9 @@ int main() {
         fgets(buffer, 1024, stdin);
         printf("Client: %s\n", buffer);
         send(sock, buffer, strlen(buffer), 0);
+        if (strncmp(buffer, "exit\n", 4) == 0) {
+            break;
+        }
         bzero(buffer, 1024);
         recv(sock, buffer, sizeof(buffer), 0);
         printf("Server: %s\n", buffer);

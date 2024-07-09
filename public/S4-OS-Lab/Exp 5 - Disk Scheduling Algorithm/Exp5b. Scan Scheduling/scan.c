@@ -1,4 +1,5 @@
 #include<stdio.h>
+
 int request_arr[20], request, head, size, seek = 0, i, j, direction;
 
 int main() {
